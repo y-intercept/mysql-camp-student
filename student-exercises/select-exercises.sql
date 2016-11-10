@@ -13,3 +13,22 @@ select * from Band where name like '% and %';
 select * from Individual where firstname like '_im';
 
 select * from Band where name like '%s';
+
+select player.ID
+, player.firstname
+, player.lastname
+, batting.battingAvg
+from player
+inner join batting on player.ID = batting.playerID
+where battingAvg = 331;
+
+select roster.*
+, player.*
+from roster
+inner join player on roster.playerID = player.ID;
+
+select firstname, lastname, abbr, hits from baseball.vbattingleaders order by hits desc;
+
+select firstname, lastname, abbr, hits from baseball.vbattingleaders order by hits asc;
+
+select firstname, lastname, teamname, atbats from baseball.vbattingleaders order by teamname, atbats desc;
