@@ -24,8 +24,11 @@ where battingAvg = 331;
 
 select roster.*
 , player.*
-from roster
-inner join player on roster.playerID = player.ID;
+, team.*
+from roster 
+left join player on roster.playerID = player.ID
+left join team on roster.teamID = team.ID
+where team.teamName = 'Boston Red Sox';
 
 select firstname, lastname, abbr, hits from baseball.vbattingleaders order by hits desc;
 
